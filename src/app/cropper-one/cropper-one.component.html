@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">請進行相片裁切
+  </h4>
+  <button type="button" class="close" aria-label="Close" (click)="ngbActiveModal.close();">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <input type="file" (change)="fileChangeEvent($event)" />
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      裁切功能: <br />
+      <image-cropper [imageFile]="imageFile" format="jpeg" [resizeToWidth]="800" [maintainAspectRatio]="true" [aspectRatio]="16 / 9"
+        [imageQuality]="40" [containWithinAspectRatio]="true" (imageCropped)="imageCropped($event)">
+      </image-cropper>
+    </div>
+    <div class="col-12 col-lg-6">
+      裁切結果:<br />
+      <img width="100%" [src]="croppedImage" />
+    </div>
+  </div>
+</div>
+<div class="modal-footer d-none d-md-flex justify-content-center row">
+  <button type="button" class="btn btn-primary col-md-2 col-5" (click)="ngbActiveModal.close()">關閉</button>
+</div>
+<div class="modal-footer d-flex d-md-none row justify-content-center">
+  <button type="button" class="btn btn-primary col-md-2 col-5" (click)="ngbActiveModal.close();">關閉</button>
+</div>

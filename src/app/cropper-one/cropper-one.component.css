@@ -1,0 +1,84 @@
+.crop-area {
+  background: #e4e4e4;
+  height: 100%;
+  overflow: hidden;
+}
+
+.screenshot-box {
+  height: 516px;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.not-allow {
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  float: right;
+}
+
+@media screen and (max-width: 500px) and (min-width: 350px) {
+  image-cropper {
+    height: 450px;
+  }
+}
+
+/* iphone5、 SE */
+@media screen and (max-width: 321px) {
+  image-cropper {
+    height: 300px;
+  }
+}
+
+/* iPad 、iPad Pro */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  image-cropper {
+    height: 500px;
+  }
+}
+
+/* iPad 、iPad Pro */
+@media screen and (max-width: 540px) and (min-width: 321px) {
+  image-cropper {
+    height: 400px;
+  }
+}
+
+/* galaxy fold */
+@media screen and (max-width: 280px) {
+  image-cropper {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  image-cropper {
+    height: 400px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.modal-footer {
+  border-top: 0;
+  /* margin: auto; */
+}
+
+.modal-body {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.frame {
+  height: 195px; /*can be anything*/
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
