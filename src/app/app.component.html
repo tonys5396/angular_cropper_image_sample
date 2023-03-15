@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="row">
+        <input type="file" (change)="fileChangeEvent($event)" />
+      </div>
+      <div class="row">
+        裁切功能: <br />
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1.618/1" [imageQuality]="40" format="jpeg"
+          format="png" [containWithinAspectRatio]="true" [hideResizeSquares]="isHideResizeSquares" [alignImage]="'center'"
+          (imageCropped)="imageCropped($event)"  (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()">
+        </image-cropper>
+      </div>
+      <div class="row">
+        裁切結果:<br />
+        <img [src]="croppedImage" />
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="row">
+        裁切功能: <br />
+        <img width="100%"  id="image">
+      </div>
+      <div class="row">
+        <button (click)="onImage2Cropped()">裁切</button>
+        裁切結果:<br />
+        <img [src]="croppedImage2" />
+      </div>
+    </div>
+  </div>
+
+</div>
