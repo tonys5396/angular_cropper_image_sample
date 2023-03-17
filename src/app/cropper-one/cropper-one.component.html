@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-12 col-lg-6">
       裁切功能: <br />
-      <image-cropper [imageFile]="imageFile" format="jpeg" [resizeToWidth]="800" [aspectRatio]="16 / 9"
+      <image-cropper [imageFile]="imageFile" format="jpeg" [resizeToWidth]="800" [maintainAspectRatio]="false" [aspectRatio]="16 / 9"
         [imageQuality]="40" (imageCropped)="imageCropped($event)">
       </image-cropper>
     </div>

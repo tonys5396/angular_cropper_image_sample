@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import Cropper from 'cropperjs';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-cropper-two',
@@ -10,37 +11,26 @@ import Cropper from 'cropperjs';
 export class CropperTwoComponent implements OnInit {
 
   constructor(public ngbActiveModal: NgbActiveModal) { }
-  cropper: Cropper;
-  croppedImage2: any = '';
+  isHideResizeSquares = false;
+  imageChangedEvent: any = null;
+  imageFile: any = null;
+  croppedImage: any = '';
 
   ngOnInit(): void {
+    const ua = navigator.userAgent;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+      this.isHideResizeSquares = true;
+    }
   }
 
   fileChangeEvent(event: any): void {
-    const image = document.getElementById('image') as HTMLImageElement;
-    image.src = URL.createObjectURL(event.target.files[0]);
-
-    this.cropper = new Cropper(image, {
-      aspectRatio: 16 / 9,
-      center: true,
-      zoomable: false,
-      movable: false,
-      viewMode: 0,
-			autoCropArea: 1,
-      dragMode: 'none'
-    });
+    if (event.target.files[0]){
+      this.imageFile = event.target.files[0];
+    }
   }
 
-  onImage2Cropped(){
-    let croppedCanvasObj = {
-      minWidth: 256,
-      minHeight: 256,
-      maxWidth: 1024,
-      maxHeight: 1024,
-      fillColor: '#fff',
-      imageSmoothingEnabled: true
-    };
-    this.croppedImage2 = this.cropper.getCroppedCanvas(croppedCanvasObj).toDataURL("image/png", 1);
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
   }
 
 }

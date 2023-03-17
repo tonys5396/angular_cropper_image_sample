@@ -10,13 +10,15 @@
     <input type="file" (change)="fileChangeEvent($event)" />
   </div>
   <div class="row">
-    <div class="col-12 col-lg-6 img-container">
-      <img id="image" src="">
+    <div class="col-12 col-lg-6">
+      裁切功能: <br />
+      <image-cropper [imageFile]="imageFile" format="jpeg" [resizeToWidth]="800"  [aspectRatio]="4 / 3"
+        [imageQuality]="40" (imageCropped)="imageCropped($event)">
+      </image-cropper>
     </div>
     <div class="col-12 col-lg-6">
-      <button type="button" class="btn btn-outline-primary" (click)="onImage2Cropped()">裁切</button>
       裁切結果:<br />
-      <img width="100%" [src]="croppedImage2" />
+      <img width="100%" [src]="croppedImage" />
     </div>
   </div>
 </div>
