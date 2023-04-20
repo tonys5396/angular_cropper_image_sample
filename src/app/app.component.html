@@ -1,4 +1,12 @@
 <div class="container">
   <button  type="button" class="btn btn-outline-primary" (click)="option1()"> 選擇A</button>
-  <button  type="button" class="btn btn-outline-primary" (click)="option2()"> 選擇B</button>
+  <button  type="button" class="btn btn-outline-primary" (click)="option2()"> 選擇B</button><br>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">請輸入URL</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="url" (change)="buildQrcode()" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  </div><br>
+  <img [src]="qrcodeImgUrl">
 </div>
+
